@@ -1,0 +1,28 @@
+# ---- Active dataset: GSE223979 (PhiKZ early infection, PRJNA929253) ----
+host_name: "Pseudomonas_aeruginosa_PAO1"
+phage_name: "PhiKZ"
+
+# Fill these in with real paths after downloading (see README Setup section).
+# Host: RefSeq assembly for P. aeruginosa PAO1 (e.g. GCF_000006765.1)
+# Phage: RefSeq/GenBank record for PhiKZ (e.g. NC_004629.1)
+host_genome_fasta: "resources/genomes/PAO1.fna"
+host_genome_gtf:   "resources/genomes/PAO1.gtf"
+phage_genome_fasta: "resources/genomes/PhiKZ.fna"
+phage_genome_gtf:   "resources/genomes/PhiKZ.gtf"
+
+# Combined reference build output
+combined_fasta: "resources/genomes/combined_host_phage.fna"
+combined_gtf:   "resources/genomes/combined_host_phage.gtf"
+phage_prefix: "phage_"
+
+star_index_dir: "resources/star_index"
+star_sjdb_overhang: 100   # set to (read_length - 1); default assumes 101bp PE reads, adjust after checking FastQC
+
+sample_sheet: "config/samples.tsv"
+
+threads: 8
+
+# ---- Alternate dataset (longer, coarser time course) ----
+# GSE58494 (PRJNA252740): PhiKZ, 0/5/10/15/35 min, host = same PAO1.
+# To switch: point sample_sheet at a samples_gse58494.tsv built the same way
+# and re-run build_reference (host/phage genomes unchanged, only samples differ).

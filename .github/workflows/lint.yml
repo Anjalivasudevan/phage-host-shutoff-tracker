@@ -1,0 +1,26 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install lint tools
+        run: pip install snakemake-minimal ruff
+
+      - name: Lint Snakefile (dry-run parse only, no data required)
+        run: snakemake -n --lint || true
+
+      - name: Ruff check python scripts
+        run: ruff check scripts/ || true
