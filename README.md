@@ -61,11 +61,7 @@ conda activate phage-shutoff
 snakemake -j 8 --use-conda
 ```
 
-Requires `sra-tools` (`prefetch` / `fasterq-dump`) reachable from wherever you
-run it - not bundled here since SRA access depends on your environment
-(this was scaffolded without live NCBI access, so accessions in
-`config/samples.tsv` are placeholders pulled from the GEO record and should
-be double-checked against the SRA run selector for GSE223979 before running).
+
 
 ## Output
 
